@@ -3,7 +3,9 @@
 #
 
 # Add source to this project's executable.
-add_executable ( Basics )
+add_subdirectory ( External/SDL )
+
+add_library ( Basics )
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET Basics PROPERTY CXX_STANDARD 20)
@@ -11,10 +13,13 @@ endif()
 
 target_sources ( Basics 
 	PRIVATE 
-	"Basics.cpp" 
-	"Basics.h" 
+	"Source/Basics.cpp" 
+	"Source/Basics.h" 
 )
 
-#target_link_libraries ( Basics )
+target_link_libraries ( Basics 
+	INTERFACE
+	SDL3::SDL3-static
+)
 
 # TODO: Add tests and install targets if needed.

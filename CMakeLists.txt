@@ -7,3 +7,4 @@ project ("Basics")
 
 # Include sub-projects.
 add_subdirectory ("Basics")
+add_subdirectory ("Sandbox")
